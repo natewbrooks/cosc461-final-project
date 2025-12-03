@@ -1,15 +1,19 @@
-from openai import OpenAI
+from huggingface_hub import InferenceClient
 
 class LLMClient:
-    def __init__(self, api_key: str, model: str = "gpt-4o-mini"):
-        self.client = OpenAI(api_key=api_key)
-        self.model = model
-
-    def chat(self, messages, max_tokens: int = 512):
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            max_tokens=max_tokens,
-            temperature=0.3,
+    def __init__(self, api_key: str, model: str = "deepseek-ai/DeepSeek-V3.2"):
+        self.model = f"{model}:novita" if model == "deepseek-ai/DeepSeek-V3.2" else model
+        self.client = InferenceClient(
+            api_key=api_key, 
         )
-        return response.choices[0].message.content
+
+    def chat(self, messages, max_tokens: int = 512) -> str:
+        try:
+            completion = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                max_tokens=max_tokens,
+            )
+            return completion.choices[0].message.content
+        except Exception as e:
+            return f"Error communicating with LLM: {e}"
