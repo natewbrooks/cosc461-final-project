@@ -6,7 +6,15 @@ Follow the steps below to configure your environment, install dependencies, and 
 
 ---
 
-## 1. Create and Activate a Virtual Environment
+## 1. Clone this repository
+
+```
+git clone https://github.com/natewbrooks/cosc461-final-project.git
+```
+
+---
+
+## 2. Create and Activate a Virtual Environment
 
 From the project root:
 
@@ -30,7 +38,7 @@ source .venv/bin/activate
 
 Once activated, your terminal should show `(.venv)` before the prompt.
 
-## 2. Install Required Python Packages
+## 3. Install Required Python Packages
 
 Run:
 
@@ -38,7 +46,7 @@ Run:
 pip install -r requirements.txt
 ```
 
-## 3. Create a Hugging Face API Key
+## 4. Create a Hugging Face API Key
 
 You must generate a **fine-grained API token** with permission to call inference providers.
 
@@ -61,7 +69,7 @@ You must generate a **fine-grained API token** with permission to call inference
 
 6. Create the token and copy the generated key.
 
-## 4. Add the API Key to Your `.env` File
+## 5. Add the API Key to Your `.env` File
 
 In the project root, create a file named:
 
@@ -81,9 +89,9 @@ Make sure there are:
 * no trailing quotes,
 * and the variable name matches exactly.
 
-Your project will load this value using `python-dotenv`.
+The project will load this value using `python-dotenv`.
 
-## 5. Running the Tutor
+## 6. Running the Tutor
 
 From the activated virtual environment:
 
