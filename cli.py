@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from tutor import PythonTutor
 
+# Handles the CLI, continuously prompting the user for input until they quit or exit the program
 def main():
     load_dotenv()
     api_key = os.getenv("HF_API_KEY")

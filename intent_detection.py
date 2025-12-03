@@ -7,6 +7,7 @@ class TutorMode(str, Enum):
     EXERCISE_ANSWER = "exercise_answer"
     GENERAL = "general"
 
+# Detects the intent of the users input and returns the corresponding TutorMode Enum 
 def detect_intent(user_input: str) -> TutorMode:
     text = user_input.lower()
     if "explain" in text or "what is" in text or "how does" in text:

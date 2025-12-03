@@ -1,5 +1,6 @@
 from intent_detection import TutorMode
 
+# The message that tells the AI how to respond and what its core responsbility is
 BASE_SYSTEM_PROMPT = """
 You are a friendly but rigorous Python tutor for absolute beginners.
 You always respond in the following sections, in this exact order:
@@ -22,6 +23,7 @@ Constraints:
 - Use clear variable names.
 """
 
+# Insert additional context for the users request based off the provided tutor mode enum so the AI can give a more informed answer
 def build_messages(mode: TutorMode, user_input: str):
     if mode == TutorMode.EXPLAIN:
         user_prompt = f"Explain this Python concept for a beginner and follow the required format strictly:\n\n{user_input}"
